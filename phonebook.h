@@ -20,7 +20,7 @@ typedef struct Contact{
 } Contact;
 
 Contact phonebook[MAX_CONTACTS];
-uint32_t contactCount = 0;
+extern uint32_t contactCount;
 
 //Приведение строку в нижний регистр
 char* stringToLower(char * str);

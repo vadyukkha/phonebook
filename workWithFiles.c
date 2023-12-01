@@ -1,4 +1,5 @@
 #include "phonebook.h"
+uint32_t contactCount;
 
 void saveToFile() {
     FILE *file = fopen("phonebook.txt", "w");

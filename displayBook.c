@@ -1,5 +1,5 @@
 #include "phonebook.h"
-
+uint32_t contactCount;
 int compareContactsBySurname(const void *a, const void *b) {
     return strcmp(((Contact*)a)->lastName, ((Contact*)b)->lastName);
 }

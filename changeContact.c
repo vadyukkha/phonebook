@@ -1,5 +1,5 @@
 #include "phonebook.h"
-
+uint32_t contactCount;
 void addContact() {
     if (contactCount < MAX_CONTACTS) {
         printf("Enter name: ");

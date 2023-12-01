@@ -1,4 +1,5 @@
 #include "phonebook.h"
+uint32_t contactCount;
 
 char* stringToLower(char * str) {
     char *newStr = (char*)malloc(strlen(str) * sizeof(char));
@@ -17,7 +18,7 @@ void searchContact() {
     stringToLower(searchStr);
 
     int found = FALSE;
-    
+    printf("ALL CONTACTS %u: ", contactCount);
     for (size_t i = 0; i < contactCount; i++) {
         if (strstr(stringToLower(phonebook[i].firstName), searchStr) != NULL ||
             strstr(stringToLower(phonebook[i].lastName), searchStr) != NULL ||

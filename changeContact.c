@@ -1,5 +1,7 @@
 #include "phonebook.h"
+
 uint32_t contactCount;
+
 void addContact() {
     if (contactCount < MAX_CONTACTS) {
         printf("Enter name: ");
@@ -28,10 +30,10 @@ void editContact() {
     char *searchName = (char*)malloc(100 * sizeof(char));
     printf("Enter surname which you wanna change: ");
     scanf("%s", searchName);
-
+    searchName = stringToLower(searchName);
     int found = FALSE;
     for (size_t i = 0; i < contactCount; i++) {
-        if (strcmp(searchName, phonebook[i].lastName) == 0) {
+        if (strcmp(searchName, stringToLower(phonebook[i].lastName)) == 0) {
             printf("Enter new name: ");
             scanf("%s", phonebook[i].firstName);
 

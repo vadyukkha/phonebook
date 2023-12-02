@@ -1,4 +1,5 @@
 #include "phonebook.h"
+
 uint32_t contactCount;
 
 int main() {
@@ -9,7 +10,7 @@ int main() {
         printf("\n1. Add contact\n");
         printf("2. Display phonebook\n");
         printf("3. Save in file\n");
-        printf("4. Rewrtie contact\n");
+        printf("4. Edit contact\n");
         printf("5. Delete contact\n");
         printf("6. Search contact\n");
         printf("7. Exit\n");

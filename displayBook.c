@@ -1,23 +1,25 @@
 #include "phonebook.h"
+
 uint32_t contactCount;
+
 int compareContactsBySurname(const void *a, const void *b) {
-    return strcmp(((Contact*)a)->lastName, ((Contact*)b)->lastName);
+    return strcmp(stringToLower(((Contact*)a)->lastName), stringToLower(((Contact*)b)->lastName));
 }
 
 int compareContactsByName(const void *a, const void *b) {
-    return strcmp(((Contact*)a)->firstName, ((Contact*)b)->firstName);
+    return strcmp(stringToLower(((Contact*)a)->firstName), stringToLower(((Contact*)b)->firstName));
 }
 
 int compareContactsByPatronymic(const void *a, const void *b) {
-    return strcmp(((Contact*)a)->middleName, ((Contact*)b)->middleName);
+    return strcmp(stringToLower(((Contact*)a)->middleName), stringToLower(((Contact*)b)->middleName));
 }
 
 int compareContactsByPhoneNumber(const void *a, const void *b) {
-    return strcmp(((Contact*)a)->phoneNumber, ((Contact*)b)->phoneNumber);
+    return strcmp(stringToLower(((Contact*)a)->phoneNumber), stringToLower(((Contact*)b)->phoneNumber));
 }
 
 int compareContactsByCity(const void *a, const void *b) {
-    return strcmp(((Contact*)a)->City, ((Contact*)b)->City);
+    return strcmp(stringToLower(((Contact*)a)->City), stringToLower(((Contact*)b)->City));
 }
 
 void displayPhonebook(int(*pred)(const void *, const void *)) {

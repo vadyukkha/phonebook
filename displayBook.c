@@ -23,7 +23,7 @@ int compareContactsByCity(const void *a, const void *b) {
 }
 
 void displayPhonebook(int(*pred)(const void *, const void *)) {
-    if (contactCount == 0) {
+    if (!contactCount) {
         printf("Phonebook is clear.\n");
         return;
     }

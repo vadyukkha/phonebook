@@ -33,7 +33,7 @@ void editContact() {
     searchName = stringToLower(searchName);
     int found = FALSE;
     for (size_t i = 0; i < contactCount; i++) {
-        if (strcmp(searchName, stringToLower(phonebook[i].lastName)) == 0) {
+        if (!strcmp(searchName, stringToLower(phonebook[i].lastName))) {
             printf("Enter new name: ");
             scanf("%s", phonebook[i].firstName);
 

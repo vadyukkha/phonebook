@@ -5,7 +5,7 @@ uint32_t contactCount;
 void saveToFile() {
     FILE *file = fopen("phonebook.txt", "w");
     if (file != NULL) {
-        for (int i = 0; i < contactCount; i++) {
+        for (size_t i = 0; i < contactCount; i++) {
             fprintf(file, "%s %s %s %s - %s\n", phonebook[i].firstName, phonebook[i].lastName,
                     phonebook[i].middleName, phonebook[i].City, phonebook[i].phoneNumber);
         }

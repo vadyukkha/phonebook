@@ -30,9 +30,9 @@ void displayPhonebook(int(*pred)(const void *, const void *)) {
 
     qsort(phonebook, contactCount, sizeof(Contact), pred);
 
-    printf("Phonebook:\n");
+    printf("\nPhonebook:\n");
     for (size_t i = 0; i < contactCount; i++) {
-        printf("%s %s %s %s - %s\n", phonebook[i].lastName, phonebook[i].firstName,
+        printf("Name: %s\nSurname: %s\nPatronymic: %s\nCity: %s\nPhone number: %s\n\n", phonebook[i].lastName, phonebook[i].firstName,
                phonebook[i].middleName, phonebook[i].City, phonebook[i].phoneNumber);
     }
 }

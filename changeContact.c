@@ -50,7 +50,7 @@ void editContact() {
     }
 
     for (size_t i = 0; i < Index; i++) {
-        printf("Position %lu\nName: %s\nSurname: %s\nPatronymic: %s\nCity: %s\nPhone number: %s\n\n",
+        printf("Position: %lu\nName: %s\nSurname: %s\nPatronymic: %s\nCity: %s\nPhone number: %s\n\n",
             IndexFounded[i], 
             phonebook[IndexFounded[i]].lastName, 
             phonebook[IndexFounded[i]].firstName,
@@ -86,25 +86,44 @@ void editContact() {
 
 void deleteContact() {
     char *searchName = (char*)malloc(100 * sizeof(char));
+    size_t *IndexFounded = (size_t*)malloc(sizeof(size_t)*contactCount);
+    size_t Index = 0;
     printf("Enter surname which you wanna delete: ");
     scanf("%s", searchName);
 
+    searchName = stringToLower(searchName);
     int found = FALSE;
+
     for (size_t i = 0; i < contactCount; i++) {
-        if (strcmp(searchName, phonebook[i].lastName) == 0) {
-            for (size_t j = i; j < contactCount - 1; j++) {
-                phonebook[j] = phonebook[j + 1];
-            }
-            contactCount--;
+        if (!strcmp(searchName, stringToLower(phonebook[i].lastName))) {
+            IndexFounded[Index++] = i;
             found = TRUE;
-            printf("Contact succesfully deleted.\n");
-            break;
         }
     }
 
     if (!found) {
-        printf("Not found contact to delete!\n");
+        printf("Contact not found!!");
+        return;
     }
+
+    for (size_t i = 0; i < Index; i++) {
+        printf("Position: %lu\nName: %s\nSurname: %s\nPatronymic: %s\nCity: %s\nPhone number: %s\n\n",
+            IndexFounded[i], 
+            phonebook[IndexFounded[i]].lastName, 
+            phonebook[IndexFounded[i]].firstName,
+            phonebook[IndexFounded[i]].middleName, 
+            phonebook[IndexFounded[i]].City, 
+            phonebook[IndexFounded[i]].phoneNumber);
+    }
+
+    size_t pos;
+    printf("Choose position which you wanna delete: ");
+    scanf("%lu", &pos);
+    for (size_t j = pos; j < contactCount - 1; j++) {
+        phonebook[j] = phonebook[j + 1];
+    }
+    contactCount--;
+    printf("Contact succesfully deleted.\n");
 
     free(searchName);
 }

@@ -77,10 +77,6 @@ void editContact() {
     printf("Enter new city: ");
     scanf("%s", phonebook[pos].City);
 
-    if (!found) {
-        printf("Not found to edit!\n");
-    }
-
     free(searchName);
 }
 

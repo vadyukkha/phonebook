@@ -32,7 +32,7 @@ void displayPhonebook(int(*pred)(const void *, const void *)) {
 
     printf("\nPhonebook:\n");
     for (size_t i = 0; i < contactCount; i++) {
-        printf("Name: %s\nSurname: %s\nPatronymic: %s\nCity: %s\nPhone number: %s\n\n", phonebook[i].lastName, phonebook[i].firstName,
+        printf("Surname: %s\nName: %s\nPatronymic: %s\nCity: %s\nPhone number: %s\n\n", phonebook[i].lastName, phonebook[i].firstName,
                phonebook[i].middleName, phonebook[i].City, phonebook[i].phoneNumber);
     }
 }
@@ -49,23 +49,23 @@ void sortingPhonebook() {
     printf("\n");
     scanf("%hu", &typeSort);
     switch (typeSort) {
-    case 1:
-        displayPhonebook(compareContactsByName);
-        break;
-    case 2:
-        displayPhonebook(compareContactsBySurname);
-        break;
-    case 3:
-        displayPhonebook(compareContactsByPatronymic);
-        break;
-    case 4:
-        displayPhonebook(compareContactsByPhoneNumber);
-        break;
-    case 5:
-        displayPhonebook(compareContactsByCity);
-        break;
-    default:
-        printf("Error number. Try again.\n");
+        case 1:
+            displayPhonebook(compareContactsByName);
+            break;
+        case 2:
+            displayPhonebook(compareContactsBySurname);
+            break;
+        case 3:
+            displayPhonebook(compareContactsByPatronymic);
+            break;
+        case 4:
+            displayPhonebook(compareContactsByPhoneNumber);
+            break;
+        case 5:
+            displayPhonebook(compareContactsByCity);
+            break;
+        default:
+            printf("Error number. Try again.\n");
     }
 
 }

@@ -17,7 +17,7 @@ void saveToFile() {
 }
 
 void loadFromFile() {
-    FILE *file = fopen("phonebook.txt", "w");
+    FILE *file = fopen("phonebook.txt", "r");
     if (file != NULL) {
         while (fscanf(file, "%s %s %s %s - %s", phonebook[contactCount].firstName,
                       phonebook[contactCount].lastName, 

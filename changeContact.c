@@ -28,32 +28,54 @@ void addContact() {
 
 void editContact() {
     char *searchName = (char*)malloc(100 * sizeof(char));
+
+    size_t *IndexFounded = (size_t*)malloc(sizeof(size_t)*contactCount);
+    size_t Index = 0;
     printf("Enter surname which you wanna change: ");
     scanf("%s", searchName);
+
     searchName = stringToLower(searchName);
     int found = FALSE;
+
     for (size_t i = 0; i < contactCount; i++) {
         if (!strcmp(searchName, stringToLower(phonebook[i].lastName))) {
-            printf("Enter new name: ");
-            scanf("%s", phonebook[i].firstName);
-
-            printf("Enter new surname: ");
-            scanf("%s", phonebook[i].lastName);
-
-            printf("Enter new patronymic: ");
-            scanf("%s", phonebook[i].middleName);
-
-            printf("Enter new phone number: ");
-            scanf("%s", phonebook[i].phoneNumber);
-
-            printf("Enter new city: ");
-            scanf("%s", phonebook[i].City);
-
+            IndexFounded[Index++] = i;
             found = TRUE;
-            printf("Contact succesfully changed!\n");
-            break;
         }
     }
+
+    if (!found) {
+        printf("Contact not found!!");
+        return;
+    }
+
+    for (size_t i = 0; i < Index; i++) {
+        printf("Position %lu\nName: %s\nSurname: %s\nPatronymic: %s\nCity: %s\nPhone number: %s\n\n",
+            IndexFounded[i], 
+            phonebook[IndexFounded[i]].lastName, 
+            phonebook[IndexFounded[i]].firstName,
+            phonebook[IndexFounded[i]].middleName, 
+            phonebook[IndexFounded[i]].City, 
+            phonebook[IndexFounded[i]].phoneNumber);
+    }
+    size_t pos;
+    printf("Choose position which you wanna edit: ");
+    scanf("%lu", &pos);
+
+    printf("Enter new name: ");
+    scanf("%s", phonebook[pos].firstName);
+
+    printf("Enter new surname: ");
+    scanf("%s", phonebook[pos].lastName);
+
+    printf("Enter new patronymic: ");
+    scanf("%s", phonebook[pos].middleName);
+
+    printf("Enter new phone number: ");
+    scanf("%s", phonebook[pos].phoneNumber);
+
+    printf("Enter new city: ");
+    scanf("%s", phonebook[pos].City);
 
     if (!found) {
         printf("Not found to edit!\n");
